@@ -1,6 +1,6 @@
 # Code Explanation Skills
 
-This repository contains Codex skills for understanding code changes after a burst of building.
+This repository contains agent skills for understanding an unfamiliar codebase, explaining recent code changes, and turning that explanation into an interactive walkthrough.
 
 - `unvibe`: create a source-grounded Markdown report that explains what changed at several audience depths.
 - `teach-diff`: walk through a code change interactively, one section at a time.

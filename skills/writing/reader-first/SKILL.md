@@ -38,7 +38,7 @@ Write one sentence, for yourself, that says what the reader should do or know af
 
 ### 3. List what must be kept
 
-Cutting is the main job, but some content can't be cut. Before editing, list what the user or the skill that produced the text requires, and keep all of it. Examples are the cited sources a review skill requires, a template's mandatory sections, and severity labels.
+Cutting is the main job, but some content can't be cut. Before editing, list what the user or the skill that produced the text requires, and keep all of it. Examples are the cited sources a review skill requires, a template's mandatory sections, and severity labels. Always keep AI-authorship disclosures and attribution lines, such as "Generated with Claude Code", a Copilot note, or a Co-Authored-By trailer. They aren't process narration. If the rewrite changed the text, you can add that it was rewritten.
 
 "Required" means it has to be present. It doesn't have to stay at its current length, so make it as short as it can be and still do its job:
 
@@ -158,7 +158,7 @@ Use the reading-time estimate as a check on yourself. Don't print "X min read" o
 
 ## Adapting to the type of text
 
-- PR description. The title says what changes and why. Then give the problem, the fix, and a "please check" pointing at the decision that most needs review, with its file and lines. If there are several decisions, list them. If the branch isn't ready to merge, say so in the first line, then list what blocks it. Then give testing: say what you ran and what it showed, and name what you didn't test. Never imply a test was run when it wasn't. Don't list files or restate the diff.
+- PR description. The title says what changes and why. Then give the problem, the fix, and a "please check" pointing at the decision that most needs review, with its file and lines. If there are several decisions, list them. If the branch isn't ready to merge, say so in the first line, then list what blocks it. Then give testing: say what you ran and what it showed, and name what you didn't test. Never imply a test was run when it wasn't. Check every claim against the diff. If the diff does something the description doesn't mention, or contradicts it, say so. Don't list files or restate the diff.
 - Review report. Start with the verdict and the findings that block merging. Explain the top few findings fully and give the rest one line each. Put the evidence next to each finding. Keep any citations the review skill requires, in short form.
 - Consultation ("how should we build X?"). Treat it like a design doc: the recommendation first, then the options in a table, then the steps to build it, with the risks attached to the step where each one bites.
 - Commit message. The subject line is the change. The body says why, if that isn't obvious.

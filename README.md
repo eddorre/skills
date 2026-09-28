@@ -1,10 +1,11 @@
 # Code Explanation Skills
 
-This repository contains agent skills for understanding an unfamiliar codebase, explaining recent code changes, and turning that explanation into an interactive walkthrough.
+This repository contains agent skills for understanding an unfamiliar codebase, explaining recent code changes, turning that explanation into an interactive walkthrough, and writing text people can read quickly.
 
 - `unvibe`: create a source-grounded Markdown report that explains what changed at several audience depths.
 - `teach-diff`: walk through a code change interactively, one section at a time.
 - `setup-eddorre-skills`: configure where reports should be saved in a repo.
+- `reader-first`: shape agent-written text (PR descriptions, reviews, updates, replies) so a person can read and act on it without wasted effort.
 
 Use `unvibe` when you want a durable written artifact. Use `teach-diff` when you want the agent to explain the work conversationally and pause for questions.
 
@@ -131,6 +132,24 @@ The skill follows a loop:
 4. Ask one short check-in question.
 5. Wait for your response before continuing.
 
+### reader-first
+
+`reader-first` answers the question: "What does the reader need, and in what order?"
+
+Agents write in seconds what takes a person minutes to read. This skill decides what goes into a text and in what order. It leads with the outcome, puts anything that needs action where the reader will see it, and cuts the process story. It also cuts whatever the reader already has, such as the diff. Claims are made checkable and put next to their evidence. Before writing anything other people will read, it asks who the readers are and what they already know.
+
+Each rule is backed by research on reading and comprehension. The sources are in `skills/writing/reader-first/references/evidence.md`, and a before-and-after PR description is in `references/examples.md`. It does not handle word-level style; pair it with a style skill such as `unslop` for that.
+
+Example prompts:
+
+```text
+/reader-first write the PR description for this branch.
+```
+
+```text
+/reader-first this review report is too long; rewrite it for the reviewer.
+```
+
 ## Typical Workflow
 
 First, generate a report:
@@ -160,11 +179,15 @@ In that case, the agent should gather the same code evidence before teaching.
 ├── README.md
 ├── LICENSE
 └── skills
-    └── engineering
-        ├── setup-eddorre-skills
-        │   └── SKILL.md
-        ├── teach-diff
-        │   └── SKILL.md
-        └── unvibe
-            └── SKILL.md
+    ├── engineering
+    │   ├── setup-eddorre-skills
+    │   │   └── SKILL.md
+    │   ├── teach-diff
+    │   │   └── SKILL.md
+    │   └── unvibe
+    │       └── SKILL.md
+    └── writing
+        └── reader-first
+            ├── SKILL.md
+            └── references/
 ```
